@@ -1,0 +1,80 @@
+﻿@model Smurfwatch.Models.Player
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>Add</h2>
+
+<h4>Player</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Level" class="control-label"></label>
+                <input asp-for="Level" class="form-control" />
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Battletag" class="control-label"></label>
+                <input asp-for="Battletag" class="form-control" />
+                <span asp-validation-for="Battletag" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heroes" class="control-label"></label>
+                @Html.DropDownList("heroes", (MultiSelectList)ViewBag.Heroes, new { @class = "form-control", @multiple = "true" })
+                <span asp-validation-for="Heroes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Maps" class="control-label"></label>
+                @Html.DropDownList("maps", (MultiSelectList)ViewBag.Maps, new { @class = "form-control", @multiple = "true" })
+                <span asp-validation-for="Maps" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Types" class="control-label"></label>
+                @Html.DropDownList("playerTypes", (MultiSelectList)ViewBag.PlayerTypes, new { @class = "form-control", @multiple = "true" })
+                <span asp-validation-for="Types" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rank" class="control-label"></label>
+                @Html.DropDownList("rank", new SelectList(ViewBag.Ranks, new { @class = "form-control" }))
+                <span asp-validation-for="Rank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainRank" class="control-label"></label>
+                @Html.DropDownList("main rank", new SelectList(ViewBag.Ranks, new { @class = "form-control" }))
+                <span asp-validation-for="MainRank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="PrivateProfile" /> @Html.DisplayNameFor(model => model.PrivateProfile)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

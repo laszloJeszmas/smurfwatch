@@ -1,0 +1,84 @@
+﻿@model Smurfwatch.Models.Player
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Player</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Level)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Level)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Battletag)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Battletag)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rank)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rank)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MainRank)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MainRank)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrivateProfile)
+        </dt>
+        <dd>
+            @(Model.PrivateProfile ? "Yes" : "No")
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Heroes)
+        </dt>
+        <dd>
+            @String.Join(", ", Model.Heroes.Select(hero => hero.Name))
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Maps)
+        </dt>
+        <dd>
+            @String.Join(", ", Model.Maps.Select(map => map.Name))
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Types)
+        </dt>
+        <dd>
+            @String.Join(", ", Model.Types.Select(type => type.Name))
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

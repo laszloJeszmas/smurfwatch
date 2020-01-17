@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[PlayerType]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] VARCHAR(15) NOT NULL
+)
